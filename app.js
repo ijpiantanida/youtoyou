@@ -27,10 +27,10 @@ app.get('/', function (req, res) {
       ffmpeg(stream)
         .toFormat('mp3')
         .on('end', function() {
-          console.log('Processing finished!');
+          console.log('Processing finished!')
         })
-        .on('error', function(){
-          res.send('ERROR!')
+        .on('error', function(error){
+          console.log('Error processing video: ' + error.message)
         })
         .pipe(res)
     })
