@@ -18,7 +18,7 @@ app.get('/', function (req, res) {
     stream.on("info",function(info, format){
       console.info("Finished fetching info - \"" + info.title + "\"")
       res.writeHead(200, {
-        'Content-Type': 'audio/mpeg',
+        'Content-Type': 'application/octet-stream',
         'Content-Lenght': format.size,
         'X-Content-Duration': info.length_seconds,
         'Content-disposition': 'attachment; filename="' + info.title + '.mp3"'
